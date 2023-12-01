@@ -15,9 +15,9 @@ public class FPS_Controller : MonoBehaviour
     public LayerMask groundMask;
 
     Vector3 velocity;
-    bool isGrounded;
+    bool isGrounded;    //åœ°é¢ã«ã¤ã„ã¦ã„ã‚‹ã‹
 
-    //ƒXƒ‰ƒCƒfƒBƒ“ƒO
+    //ã‚¹ãƒ©ã‚¤ãƒ‡ã‚£ãƒ³ã‚°
     private bool isSliding = false;
     public float slideSpeed = 10f;
     public float slideTime = 1f;
@@ -30,8 +30,8 @@ public class FPS_Controller : MonoBehaviour
     void Start()
     {
 
-        // CharacterController ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌƒXƒeƒbƒv‚‚³‚ğİ’è
-        controller.stepOffset = 0.5f; // “KØ‚È’l‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢
+        // CharacterController ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ã‚¹ãƒ†ãƒƒãƒ—é«˜ã•ã‚’è¨­å®š
+        controller.stepOffset = 0.5f; // é©åˆ‡ãªå€¤ã‚’è¨­å®šã—ã¦ãã ã•ã„
     }
 
     // Update is called once per frame
@@ -41,7 +41,7 @@ public class FPS_Controller : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f; // ’n–Ê‚É‚Â‚¢‚Ä‚¢‚é‚Æ‚«Ay•ûŒü‚Ì‘¬“x‚ğƒŠƒZƒbƒg
+            velocity.y = -2f; // åœ°é¢ã«ã¤ã„ã¦ã„ã‚‹ã¨ãã€yæ–¹å‘ã®é€Ÿåº¦ã‚’ãƒªã‚»ãƒƒãƒˆ
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -60,19 +60,19 @@ public class FPS_Controller : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // ƒWƒƒƒ“ƒvˆ—
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // ã‚¸ãƒ£ãƒ³ãƒ—å‡¦ç†
         }
 
-        // ƒXƒ‰ƒCƒfƒBƒ“ƒO‚Ìˆ—
+        // ã‚¹ãƒ©ã‚¤ãƒ‡ã‚£ãƒ³ã‚°ã®å‡¦ç†
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             StartSlide();
         }
 
-        //d—Í
+        //é‡åŠ›
         velocity.y += gravity * Time.deltaTime;
 
-        //ˆÚ“®ˆ—
+        //ç§»å‹•å‡¦ç†
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
@@ -93,7 +93,7 @@ public class FPS_Controller : MonoBehaviour
 
         if (slideTimer < slideTime)
         {
-            // ƒXƒ‰ƒCƒfƒBƒ“ƒO’†‚ÍƒXƒ‰ƒCƒfƒBƒ“ƒO‘¬“x‚ÅˆÚ“®
+            // ã‚¹ãƒ©ã‚¤ãƒ‡ã‚£ãƒ³ã‚°ä¸­ã¯ã‚¹ãƒ©ã‚¤ãƒ‡ã‚£ãƒ³ã‚°é€Ÿåº¦ã§ç§»å‹•
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
@@ -102,7 +102,7 @@ public class FPS_Controller : MonoBehaviour
         }
         else
         {
-            // ƒXƒ‰ƒCƒfƒBƒ“ƒOŠÔ‚ªŒo‰ß‚µ‚½‚çƒXƒ‰ƒCƒfƒBƒ“ƒOI—¹
+            // ã‚¹ãƒ©ã‚¤ãƒ‡ã‚£ãƒ³ã‚°æ™‚é–“ãŒçµŒéã—ãŸã‚‰ã‚¹ãƒ©ã‚¤ãƒ‡ã‚£ãƒ³ã‚°çµ‚äº†
             isSliding = false;
         }
     }
