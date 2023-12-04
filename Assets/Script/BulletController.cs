@@ -5,20 +5,20 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     
-    public int damageAmount = 10; // ‚Ìƒ_ƒ[ƒW—Ê
+    public int damageAmount = 10; // ã®ãƒ€ãƒ¡ãƒ¼ã‚¸é‡
 
     
 
-    // ’e‚ª‰½‚©‚ÉÕ“Ë‚µ‚½‚Ìˆ—i—á‚¦‚Î“G‚É“–‚½‚Á‚½‚çƒ_ƒ[ƒW‚ğ—^‚¦‚é‚È‚Çj‚ÍA•K—v‚É‰‚¶‚Ä‚±‚±‚É’Ç‰Á‚Å‚«‚Ü‚·
+    // å¼¾ãŒä½•ã‹ã«è¡çªã—ãŸæ™‚ã®å‡¦ç†ï¼ˆä¾‹ãˆã°æ•µã«å½“ãŸã£ãŸã‚‰ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆã‚‹ãªã©ï¼‰ã¯ã€å¿…è¦ã«å¿œã˜ã¦ã“ã“ã«è¿½åŠ ã§ãã¾ã™
 
     void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Player"))
         {
-            // ’e‚ğ”jŠü‚·‚é
+            // å¼¾ã‚’ç ´æ£„ã™ã‚‹
             Destroy(gameObject);
         }
-        // Õ“Ë‚µ‚½ƒIƒuƒWƒFƒNƒg‚ªƒvƒŒƒCƒ„[‚Å‚ ‚éê‡AƒvƒŒƒCƒ„[‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚é
+        // è¡çªã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã§ã‚ã‚‹å ´åˆã€ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆã‚‹
         //collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damageAmount);
     }
 
